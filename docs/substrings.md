@@ -32,5 +32,11 @@ def minOperations(self, nums: List[int], x: int) -> int:
 - 숫자가 양수가 아니어도 가능하다.
 - `O(N^2) / O(1)` 문제를 `O(N) / O(N)`으로 줄임.
 
+```python
+prefix[0] = 0
+prefix[i+1] = prefix[i] + A[i]
+# sum(l, r) = prefix[r+1] - prefix[l]
+```
+
 ## 선택 기준
 - Sliding Window 또는 Prefix Sum으로 풀 수 있는지 먼저 고민해보기.

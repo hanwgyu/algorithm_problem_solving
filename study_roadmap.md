@@ -43,7 +43,7 @@
 - 추천 문제: [01 Matrix](Leetcode/542.py), [Number of Provinces](Leetcode/547.py), [Course Schedule](Leetcode/Course_Schedule.py), [Network Delay Time](Leetcode/Network_Delay_Time.py)
 
 9) DP 기본
-- 문서: [lis](docs/lis.md)
+- 문서: [dp](docs/dp.md), [lis](docs/lis.md)
 - 추천 문제: [Climbing Stairs](Leetcode/Climbing_Stairs.py), [Coin Change](Leetcode/Coin_Change.py), [Longest Palindromic Subsequence](Leetcode/Longest_Palindromic_Subsequence.py), [Maximal Square](Leetcode/Maximal_Square.py)
 
 ## 2. 심화 순서
