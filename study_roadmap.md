@@ -12,76 +12,76 @@
 
 ## 1. 기초 → 중급 순서
 1) 배열/문자열 + 해시
-- 문서: [substrings](../docs/substrings.md), [palindrome](../docs/palindrome.md)
-- 추천 문제: [Two Sum](../Leetcode/Two_Sum.py), [Group Anagrams](../Leetcode/Group_Anagrams.py), [First Unique Character](../Leetcode/First_Unique_Character_in_a_String.py)
+- 문서: [substrings](docs/substrings.md), [palindrome](docs/palindrome.md)
+- 추천 문제: [Two Sum](Leetcode/Two_Sum.py), [Group Anagrams](Leetcode/Group_Anagrams.py), [First Unique Character](Leetcode/First_Unique_Character_in_a_String.py)
 
 2) 투 포인터 / 슬라이딩 윈도우
-- 문서: [two_pointer](../docs/two_pointer.md)
-- 추천 문제: [Two Sum II](../Leetcode/167.py), [Longest Substring](../Leetcode/3.py), [Minimum Window Substring](../Leetcode/76.py), [Max Consecutive Ones III](../Leetcode/1004.py)
+- 문서: [two_pointer](docs/two_pointer.md)
+- 추천 문제: [Two Sum II](Leetcode/167.py), [Longest Substring](Leetcode/3.py), [Minimum Window Substring](Leetcode/76.py), [Max Consecutive Ones III](Leetcode/1004.py)
 
 3) 스택 / 큐
-- 문서: [monotonic_stack](../docs/monotonic_stack.md)
-- 추천 문제: [Valid Parentheses](../Leetcode/Valid_Parentheses.py), [Daily Temperatures](../Leetcode/Daily_Temperatures.py), [Largest Rectangle](../Leetcode/Largest_Rectangle_in_Histogram.py)
+- 문서: [monotonic_stack](docs/monotonic_stack.md)
+- 추천 문제: [Valid Parentheses](Leetcode/Valid_Parentheses.py), [Daily Temperatures](Leetcode/Daily_Temperatures.py), [Largest Rectangle](Leetcode/Largest_Rectangle_in_Histogram.py)
 
 4) 링크드 리스트
-- 문서: [linked_list](../docs/linked_list.md)
-- 추천 문제: [Reverse Linked List](../Leetcode/Reverse_Linked_List.py), [Linked List Cycle](../Leetcode/Linked_List_Cycle.py), [Swap Nodes in Pairs](../Leetcode/Swap_Nodes_in_Pairs.py)
+- 문서: [linked_list](docs/linked_list.md)
+- 추천 문제: [Reverse Linked List](Leetcode/Reverse_Linked_List.py), [Linked List Cycle](Leetcode/Linked_List_Cycle.py), [Swap Nodes in Pairs](Leetcode/Swap_Nodes_in_Pairs.py)
 
 5) 이분 탐색
-- 문서: [binary_search](../docs/binary_search.md)
-- 추천 문제: [Find First and Last Position](../Leetcode/34.py), [Find Minimum in Rotated Array](../Leetcode/153.py), [Search in Rotated Sorted Array](../Leetcode/Search_in_Rotated_Sorted_Array.py)
+- 문서: [binary_search](docs/binary_search.md)
+- 추천 문제: [Find First and Last Position](Leetcode/34.py), [Find Minimum in Rotated Array](Leetcode/153.py), [Search in Rotated Sorted Array](Leetcode/Search_in_Rotated_Sorted_Array.py)
 
 6) 우선순위 큐(힙)
-- 문서: [heap](../docs/heap.md)
-- 추천 문제: [K Closest Points](../Leetcode/K_Cloest_Points_to_Origin.py), [Meeting Rooms II](../Leetcode/253.py), [Top K Frequent Words](../Leetcode/692.py)
+- 문서: [heap](docs/heap.md)
+- 추천 문제: [K Closest Points](Leetcode/K_Cloest_Points_to_Origin.py), [Meeting Rooms II](Leetcode/253.py), [Top K Frequent Words](Leetcode/692.py)
 
 7) 트리 기본
-- 추천 문제: [Validate BST](../Leetcode/Validate_Binary_Search_Tree.py), [LCA of a Binary Tree](../Leetcode/Lowest_Common_Ancestor_of_a_Binary_Tree.py), [Binary Tree Right Side View](../Leetcode/Binary_Tree_Right_Side_View.py)
+- 추천 문제: [Validate BST](Leetcode/Validate_Binary_Search_Tree.py), [LCA of a Binary Tree](Leetcode/Lowest_Common_Ancestor_of_a_Binary_Tree.py), [Binary Tree Right Side View](Leetcode/Binary_Tree_Right_Side_View.py)
 
 8) 그래프 기본 (BFS/DFS/Union-Find/Topo)
-- 문서: [bfs](../docs/bfs.md), [graph](../docs/graph.md)
-- 추천 문제: [01 Matrix](../Leetcode/542.py), [Number of Provinces](../Leetcode/547.py), [Course Schedule](../Leetcode/Course_Schedule.py), [Network Delay Time](../Leetcode/Network_Delay_Time.py)
+- 문서: [bfs](docs/bfs.md), [graph](docs/graph.md)
+- 추천 문제: [01 Matrix](Leetcode/542.py), [Number of Provinces](Leetcode/547.py), [Course Schedule](Leetcode/Course_Schedule.py), [Network Delay Time](Leetcode/Network_Delay_Time.py)
 
 9) DP 기본
-- 문서: [lis](../docs/lis.md)
-- 추천 문제: [Climbing Stairs](../Leetcode/Climbing_Stairs.py), [Coin Change](../Leetcode/Coin_Change.py), [Longest Palindromic Subsequence](../Leetcode/Longest_Palindromic_Subsequence.py), [Maximal Square](../Leetcode/Maximal_Square.py)
+- 문서: [lis](docs/lis.md)
+- 추천 문제: [Climbing Stairs](Leetcode/Climbing_Stairs.py), [Coin Change](Leetcode/Coin_Change.py), [Longest Palindromic Subsequence](Leetcode/Longest_Palindromic_Subsequence.py), [Maximal Square](Leetcode/Maximal_Square.py)
 
 ## 2. 심화 순서
 10) 백트래킹 / 재귀 설계
-- 문서: [backtracking](../docs/backtracking.md)
-- 추천 문제: [Generate Parentheses](../Leetcode/Generate_Parentheses.py), [Permutations](../Leetcode/Permutations.py), [Sudoku Solver](../Leetcode/37.py)
+- 문서: [backtracking](docs/backtracking.md)
+- 추천 문제: [Generate Parentheses](Leetcode/Generate_Parentheses.py), [Permutations](Leetcode/Permutations.py), [Sudoku Solver](Leetcode/37.py)
 
 11) 트라이
-- 문서: [trie](../docs/trie.md)
-- 추천 문제: [Implement Trie](../Leetcode/208.py), [Word Search II](../Leetcode/212.py), [Autocomplete System](../Leetcode/642.py)
+- 문서: [trie](docs/trie.md)
+- 추천 문제: [Implement Trie](Leetcode/208.py), [Word Search II](Leetcode/212.py), [Autocomplete System](Leetcode/642.py)
 
 12) 단조 스택/큐 심화
-- 문서: [monotonic_stack](../docs/monotonic_stack.md)
-- 추천 문제: [Daily Temperatures](../Leetcode/739.py), [Shortest Subarray With Sum](../Leetcode/862.py), [Count Submatrices With All Ones](../Leetcode/1504.py)
+- 문서: [monotonic_stack](docs/monotonic_stack.md)
+- 추천 문제: [Daily Temperatures](Leetcode/739.py), [Shortest Subarray With Sum](Leetcode/862.py), [Count Submatrices With All Ones](Leetcode/1504.py)
 
 13) 세그먼트 트리 / 펜윅 트리
-- 문서: [segment_tree](../docs/segment_tree.md), [fenwick_tree](../docs/fenwick_tree.md)
-- 추천 문제: [Range Sum Query - Mutable](../Leetcode/307.py), [Range Module](../Leetcode/715.py)
+- 문서: [segment_tree](docs/segment_tree.md), [fenwick_tree](docs/fenwick_tree.md)
+- 추천 문제: [Range Sum Query - Mutable](Leetcode/307.py), [Range Module](Leetcode/715.py)
 
 14) 고급 그래프/DP
-- 추천 문제: [Cheapest Flights Within K Stops](../Leetcode/787.py), [Shortest Path Visiting All Nodes](../Leetcode/847.py), [Stone Game III](../Leetcode/1406.py), [Stone Game IV](../Leetcode/1510.py)
+- 추천 문제: [Cheapest Flights Within K Stops](Leetcode/787.py), [Shortest Path Visiting All Nodes](Leetcode/847.py), [Stone Game III](Leetcode/1406.py), [Stone Game IV](Leetcode/1510.py)
 
 ## 3. 문제 풀이 시작 추천 순서 (빠른 시작용 15개)
-1. [Two Sum](../Leetcode/Two_Sum.py)
-2. [Valid Parentheses](../Leetcode/Valid_Parentheses.py)
-3. [Two Sum II](../Leetcode/167.py)
-4. [Longest Substring](../Leetcode/3.py)
-5. [Daily Temperatures](../Leetcode/Daily_Temperatures.py)
-6. [Reverse Linked List](../Leetcode/Reverse_Linked_List.py)
-7. [Linked List Cycle](../Leetcode/Linked_List_Cycle.py)
-8. [Find First and Last Position](../Leetcode/34.py)
-9. [Find Minimum in Rotated Array](../Leetcode/153.py)
-10. [Climbing Stairs](../Leetcode/Climbing_Stairs.py)
-11. [Coin Change](../Leetcode/Coin_Change.py)
-12. [01 Matrix](../Leetcode/542.py)
-13. [Number of Provinces](../Leetcode/547.py)
-14. [Course Schedule](../Leetcode/Course_Schedule.py)
-15. [Range Sum Query - Mutable](../Leetcode/307.py)
+1. [Two Sum](Leetcode/Two_Sum.py)
+2. [Valid Parentheses](Leetcode/Valid_Parentheses.py)
+3. [Two Sum II](Leetcode/167.py)
+4. [Longest Substring](Leetcode/3.py)
+5. [Daily Temperatures](Leetcode/Daily_Temperatures.py)
+6. [Reverse Linked List](Leetcode/Reverse_Linked_List.py)
+7. [Linked List Cycle](Leetcode/Linked_List_Cycle.py)
+8. [Find First and Last Position](Leetcode/34.py)
+9. [Find Minimum in Rotated Array](Leetcode/153.py)
+10. [Climbing Stairs](Leetcode/Climbing_Stairs.py)
+11. [Coin Change](Leetcode/Coin_Change.py)
+12. [01 Matrix](Leetcode/542.py)
+13. [Number of Provinces](Leetcode/547.py)
+14. [Course Schedule](Leetcode/Course_Schedule.py)
+15. [Range Sum Query - Mutable](Leetcode/307.py)
 
 ## 4. 체크리스트 (문제 읽을 때 바로 쓰기)
 - 입력 크기 N, M이 어느 정도인지부터 계산.
