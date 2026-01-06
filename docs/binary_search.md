@@ -75,3 +75,40 @@ Array에서 O(logN) 시간에 어떤 값을 찾아내는 문제. Binary Search�
 - 33. Search in Rotated Sorted Array
 - 162. Find Peak Element
 - 4. Median of Two Sorted Arrays
+
+## Binary Search as Answer
+- 정답을 특정 값으로 추정하고, 정답의 범위를 Binary Search로 이동하면서 구하는 방식도 자주 쓰인다.
+- 예시 문제: https://leetcode.com/problems/find-the-duplicate-number/
+
+## 템플릿과 엣지 케이스
+- Binary Search 문제는 Template이 두 가지가 있다. 템플릿에 따라 예외처리를 해줘야 하는 경우가 있고, 안 해도 모든 케이스가 고려되는 경우가 있다.
+- 참고 문제: https://github.com/hanwgyu/algorithm_problem_solving/blob/master/Leetcode/162.py
+- 엣지 케이스를 반드시 고려해서 결과를 l, r 중 뭘 리턴할지 고려해야 하고, 예외처리도 해줘야 한다.
+    - 1) l, r이 겹쳤을 때
+    - 2) 1 차이날 때
+    - 참고할 문제
+        - https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
+
+## End Case 예시
+- end case
+    - x x x x o o o o
+    - x x x x 여기서 끝날 때
+    - x x x x o o o o 여기서 끝날 때
+    - 두 가지 엔드 케이스를 설명
+
+```python
+def getk(piles: List[int], h: int) -> int:
+    def solve(m: int) -> int:
+        # return times for eat all piles
+        return sum(((pile - 1) // m + 1) for pile in piles)
+
+    l, r = 1, max(piles)
+    while l <= r:
+        m = (l + r) // 2
+        res = solve(m)
+        if res > h:
+            l = m + 1
+        elif res <= h:
+            r = m - 1
+    return l
+```
