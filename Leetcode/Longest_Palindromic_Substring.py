@@ -37,6 +37,9 @@ class Solution:
         return s[(best_center - best_len) // 2: (best_center + best_len) // 2] 
     
     def longestPalindrome_1(self, s: str) -> str:
+        """
+        O(N^2) / O(N)
+        """
         def updateAns(start, end):
             if len(self.ans) < end - start + 1:
                 self.ans = s[start : end + 1]
