@@ -17,10 +17,12 @@
   - [Code](Leetcode/Longest_Palindromic_Substring.py)
 
 
-## Rolling Hash - Rabin Karp
-- 문자열 매칭 알고리즘.
-- 각 문자를 표현하는 숫자를 이용해 전체 문자열을 숫자로 변환하고, 각 자리수에 pow(BASE, i)를 곱해서 더한다. 최대 범위값인 MOD값을 통해 나눈다.
-- 두 값이 동일한지를 통해 문자열을 매칭한다. (값이 같은데 문자열이 다른 경우가 존재할 수 있기 때문에, 값을 한번 더 더블체크한다. 빈번하지 않기에 시간 복잡도에는 변화가 없다.)
-- 긴 문자열을 매치할 때 한 글자씩 이동하면서 겹치는 부분을 그대로 사용하고, 추가되고 제거되는 문자 두 개만 계산. - Rolling Hash
-- O(N)
-- https://github.com/hanwgyu/algorithm_problem_solving/blob/master/Leetcode/1044.py
+## Palindrome + Rolling Hash 팁
+- 문자열 s와 reverse(s)에 대해 같은 길이 구간의 해시를 비교하면 palindrome 후보를 빠르게 찾을 수 있다.
+- 보통 이분 탐색(길이) + 해시 비교로 최장 palindrome 길이를 찾는 변형이 가능하다.
+- 충돌 방지를 위해 2개의 MOD를 쓰거나, 해시가 같을 때 실제 문자열을 한 번 더 확인한다.
+- 구현 시 prefix hash와 pow 배열을 미리 만들어두면 O(1)로 구간 해시를 계산할 수 있다.
+
+```python
+# hash(l, r) = (prefix[r] - prefix[l] * pow_base[r-l]) % MOD
+```

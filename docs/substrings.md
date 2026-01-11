@@ -38,5 +38,39 @@ prefix[i+1] = prefix[i] + A[i]
 # sum(l, r) = prefix[r+1] - prefix[l]
 ```
 
+## Rolling Hash - Rabin Karp
+- 문자열 매칭 알고리즘.
+- 각 문자를 정수로 매핑하고, 문자열을 다항식 해시로 표현한다.
+- 해시가 같은 경우에만 실제 문자열을 비교해 충돌을 제거한다.
+- 길이 m의 윈도우를 한 글자씩 이동하며 해시를 O(1)로 갱신한다.
+- 평균 시간: O(n), 최악: O(nm)
+- https://github.com/hanwgyu/algorithm_problem_solving/blob/master/Leetcode/1044.py
+
+### Rabin-Karp 핵심 설명
+- 길이가 m인 패턴 P를 길이가 n인 문자열 S 안에서 찾는 방법.
+- P의 해시값을 먼저 계산하고, S의 모든 길이 m 구간 해시와 비교한다.
+- 해시가 같으면 "후보"이므로 실제 문자열을 한 번 더 비교해 충돌을 제거한다.
+- 슬라이딩 윈도우로 다음 구간 해시를 O(1)로 갱신한다.
+
+### Rolling Hash 수식
+- 문자 값을 정수로 매핑하고, 해시를 다항식으로 만든다.
+- H(s[l..r]) = sum(s[i] * BASE^(r-i)) mod MOD
+- 다음 구간으로 이동할 때:
+  - 이전 해시에서 빠지는 문자 영향을 제거하고
+  - 해시에 BASE를 곱한 뒤 새 문자를 더한다.
+
+```python
+# remove leading char, shift, add trailing char
+# new_hash = (old_hash - s[l] * pow_base[m-1]) * BASE + s[r+1]
+```
+
+### 충돌 처리
+- 서로 다른 문자열이 같은 해시를 가질 수 있음.
+- 실전에서는 1) 해시가 같으면 문자열을 직접 비교하거나, 2) 서로 다른 MOD 두 개를 사용한다.
+
+### 시간 복잡도
+- 해시 비교는 O(1), 전체는 O(n)
+- 충돌 시 비교를 포함하면 최악은 O(nm)이지만, 일반적으로는 O(n)
+
 ## 선택 기준
 - Sliding Window 또는 Prefix Sum으로 풀 수 있는지 먼저 고민해보기.
