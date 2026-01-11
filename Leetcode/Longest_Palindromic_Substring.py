@@ -10,6 +10,32 @@ from collections import deque
 
 
 class Solution:
+    def longestPalindrome(self, s: str) -> str:
+        """
+        Manaster's Algorithm
+        O(N) / O(N)
+        """
+        R, C = 0, 0
+        t = "#" + "#".join(s) + "#"
+        N = len(t)
+        P = [0] * N
+        best_len, best_C = 0,0
+        for i in range(N):
+            radius = 0
+            if i <= R:
+                mirror = C - (i-C)
+                P[i] = min(P[mirror], R-i)
+            while i-(P[i]+1) >= 0 and i+(P[i]+1) < N and t[i+(P[i]+1)] == t[i-(P[i]+1)]:
+                P[i] += 1
+            if i+P[i] > R:
+                R, C = i+P[i], i
+
+            # update best
+            if P[i] > best_len:
+                best_len = P[i]
+                best_center = i
+        return s[(best_center - best_len) // 2: (best_center + best_len) // 2] 
+    
     def longestPalindrome_1(self, s: str) -> str:
         def updateAns(start, end):
             if len(self.ans) < end - start + 1:

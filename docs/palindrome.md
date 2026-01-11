@@ -11,7 +11,11 @@
 - String 내에 존재하는 모든 palindrome의 개수를 O(N)에 구함.
 - 특정 위치에서의 최대 palindrome 길이를 저장해나아가고, center를 기준으로 mirror이기 때문에 반대편 위치에서의 최소 palindrome 길이를 계산하지 않고 구할 수 있다.
     - ex) aba c abac...이면 두번째 b 위치의 최대길이 3을 그대로 이용해 여섯번째 b의 최소 길이를 3으로 두는데 사용한다.
-- 구현은 아직.
+- Rightmost R 가 바귀면 그값과 Center C 위치를 계속 업데이트 해나아가고, 대칭이 되는 위치의 최대 palindrome 길이가 Rightmost 에 못미치면, mirror이므로 이미 앞에서 검증한 값과 같아서 더이상 palindrome인지를 체크할 필요가 없다. 그냥 그다음으로 넘어가면 됨.
+- Refer
+  - https://leetcode.com/problems/longest-palindromic-substring/description/
+  - [Code](Leetcode/Longest_Palindromic_Substring.py)
+
 
 ## Rolling Hash - Rabin Karp
 - 문자열 매칭 알고리즘.
