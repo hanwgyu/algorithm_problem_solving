@@ -3,20 +3,14 @@
 ## 구현 방식
 아래와 같이 두가지 방식으로 구현할 수 있다.
 ```py
-def binary_search(arr, x):
-    l = 0
-    r = len(arr) - 1
-    m = 0
-
-    while low < high:
-        m = (l + r) // 2
-        if arr[m] < x:
-            l = m + 1
-        elif arr[m] > x:
-            r = m
-        else:
-            return m
-    return -1
+l, r = 0, len(a)     # 핵심: r = n
+while l < r:
+    m = (l + r) // 2
+    if a[m] < x:
+        l = m + 1
+    else:
+        r = m
+return l
 ```
 
 또는
@@ -38,6 +32,59 @@ def binary_search(arr, x):
     return -1
 ```
 2번 구현 방식을 쓰자.  외우기도 쉽고, arr 크기가 1일때도 사용할 수 있다. (아래에서 설명)
+
+
+## 1번 vs 2번
+1번은  “경계 찾기” 문제에 사용된다. 왼쪽이나 오른쪽을 버리지 않기 때문에, 명확한 경계를 찾는데 사용된다.
+	•	peak 찾기
+	•	lower/upper bound
+	•	“정답이 index 하나로 수렴하는 문제”
+ex) https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
+
+```
+while l < r:
+    m = (l + r) // 2
+    if cond(m):
+        r = m
+    else:
+        l = m + 1
+```
+
+✅ 구간 의미
+	•	후보는 [l, r) (오른쪽 끝 r은 “포함 안 함”)
+	•	종료는 항상 l == r (정말 “수렴”)
+
+✅ 각 스텝 의미
+	•	a[m] < x → m 포함 왼쪽 전부 버려도 됨 → l = m+1
+	•	else (a[m] >= x) → m 자체가 답일 수도 있으니 남김 → r = m
+
+✅ 종료 상태
+	•	항상 l == r
+	•	그 값은 첫 >= x 위치 (lower_bound)
+	•	“정확히 존재하는지”는 마지막에 a[l]==x로 확인d
+
+
+2번은 기존 값찾기 문제.
+
+### 정리. 
+✅ 1. “값 찾기”면 무조건 l <= r
+	•	standard binary search
+	•	rotated array search
+	•	조건 분기가 명확한 경우
+
+✅ 2. “경계 찾기”면 l < r
+	•	lower_bound
+	•	peak
+	•	최소 만족 index
+
+
+✅ 3. 변형 문제는 이렇게 생각
+
+```
+mid를 보고
+→ 왼쪽을 통째로 버릴 수 있는가?
+→ 오른쪽을 통째로 버릴 수 있는가?
+```
 
 ## 어려운점..
 

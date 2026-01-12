@@ -42,6 +42,28 @@ nums  t
 
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
+        N = len(nums)
+        before_pivot = (target >= nums[0])
+        # if true, set float('inf') if num <= nums[N].
+        # if false, set float('-inf') if nums[0] <= num
+        l, r = 0, N-1
+        while l <= r:
+            m = (l+r) // 2
+            num = nums[m]
+            if before_pivot and num < nums[0]:
+                num = float('inf')
+            elif not before_pivot and num >= nums[0]:
+                num = float('-inf')
+            if num > target:
+                r = m-1
+            elif num < target:
+                l = m+1
+            else:
+                return m
+        return -1
+
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
         l, r = 0, len(nums)-1
         while l <= r:
             m = (l+r)//2
