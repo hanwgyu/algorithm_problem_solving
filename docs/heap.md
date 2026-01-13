@@ -10,6 +10,8 @@ Let h = log n represent the height of the heap. The work required for the siftDo
 (0 * n/2) + (1 * n/4) + (2 * n/8) + ... + (h * 1).
 ```
 
+![alt text](image.png)
+
 Each term in the sum has the maximum distance a node at the given height will have to move (zero for the bottom layer, h for the root) multiplied by the number of nodes at that height. In contrast, the sum for calling siftUp on each node is
 
 ```
