@@ -12,6 +12,24 @@ class Solution:
         values: List[float],
         queries: List[List[str]],
     ) -> List[float]:
+        """
+        Floyd-Warshall
+
+        기본적으로 DP. 
+        dist[k][i][j] = 중간 노드로 {0..k}만 허용했을 때 i에서 j까지의 최단거리
+        
+        dist[k][i][j] = min(dist[k-1][i][j], dist[k-1][i][k] + dist[k-1][k][j])
+        
+        로 할 수 있는데 inplace로 해서 아래와 같이 줄임.
+
+        for k in range(n):
+            for i in range(n):
+                for j in range(n):
+                    dist[i][j] = min(
+                        dist[i][j],
+                        dist[i][k] + dist[k][j]
+                    )
+        """
         vals = defaultdict(lambda: defaultdict(lambda: -1.0))
         for (src, dst), val in zip(equations, values):
             vals[src][src] = vals[dst][dst] = 1.0
