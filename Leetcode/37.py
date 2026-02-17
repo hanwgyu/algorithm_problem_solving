@@ -6,6 +6,90 @@
 # REMIND: backtracking 기본문제.. 근데 못풀었다. 
 
 class Solution:
+from typing import List
+from collections import defaultdict, deque
+
+class Solution:
+    def solveSudoku(self, board: List[List[str]]) -> None:
+        """
+        최적화 : backtracking으로 들어가기전에 가능한 candidate가 가장 적은 emtpy cell을 구하고 거기서 시작.
+        """
+        rows = defaultdict(set)
+        cols = defaultdict(set)
+        triples = defaultdict(set)
+        empties = deque()
+
+        for i in range(9):
+            for j in range(9):
+                val = board[i][j]
+                if val != ".":
+                    rows[i].add(val)
+                    cols[j].add(val)
+                    triples[(i // 3, j // 3)].add(val)
+                else:
+                    empties.append((i, j))
+
+        digits = ("1", "2", "3", "4", "5", "6", "7", "8", "9")
+
+        def dfs() -> bool:
+            if not empties:
+                return True
+
+            # --- MRV: choose the empty cell with the fewest candidates ---
+            best_idx = -1
+            best_cands = None
+
+            for idx, (r, c) in enumerate(empties):
+                t = (r // 3, c // 3)
+                cands = []
+                for v in digits:
+                    if v not in rows[r] and v not in cols[c] and v not in triples[t]:
+                        cands.append(v)
+
+                # If a cell has no candidates, this path is impossible
+                if not cands:
+                    return False
+
+                if best_cands is None or len(cands) < len(best_cands):
+                    best_cands = cands
+                    best_idx = idx
+                    if len(best_cands) == 1:
+                        break
+
+            # Bring best cell to the front of deque
+            if best_idx != 0:
+                empties.rotate(-best_idx)   # chosen cell moves to front
+
+            r, c = empties[0]
+            t = (r // 3, c // 3)
+
+            # Try candidates (already computed by MRV)
+            for val in best_cands:
+                board[r][c] = val
+                rows[r].add(val)
+                cols[c].add(val)
+                triples[t].add(val)
+
+                empties.popleft()
+                if dfs():
+                    return True
+                empties.appendleft((r, c))
+
+                triples[t].remove(val)
+                cols[c].remove(val)
+                rows[r].remove(val)
+                board[r][c] = "."
+
+            # Restore deque order for upper recursion (undo rotate)
+            if best_idx != 0:
+                empties.rotate(best_idx)
+
+            return False
+
+        dfs()
+
+
+    
     def solveSudoku(self, board):
         """
             dict을 사용해서 시간을 좀더 효율적으로,
