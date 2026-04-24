@@ -29,6 +29,12 @@ class Solution:
                         dist[i][j],
                         dist[i][k] + dist[k][j]
                     )
+
+
+        두번째 방식이 안되는이유: 
+        dist[i][j][k] = 시작 노드로 {0..i}만 허용했을 때 i에서 j까지의 최단거리
+        근데 시작 노드를 허용한다는 개념이 말이 안됨.
+    
         """
         vals = defaultdict(lambda: defaultdict(lambda: -1.0))
         for (src, dst), val in zip(equations, values):
