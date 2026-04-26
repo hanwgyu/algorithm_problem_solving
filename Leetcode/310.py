@@ -11,6 +11,71 @@ from collections import defaultdict
 from typing import Set
 
 
+""" BFS가 더 나음"""
+class Solution:
+    def findMinHeightTrees(self, n: int, edges: List[List[int]]) -> List[int]:
+        """
+        1. 핵심. 아무 노드에서 가장 멀리 있는 노드를 찾으면 그 지점은 반드시 트리의 지름의 한 끝단. 그러고 한번더 가장긴노드 찾은후 가운데 지점 리턴하면 그게 정답.
+        그림을 생각해보면 이해가능
+
+        a-e 가 가장긴 길이라 생각하고, 만약 이게 지름이 아니라고 생각한다면, c-d 를 지름으로 가정가능
+        1) case 1
+        a -x-  n --- c
+           |     --- d
+           |
+           e
+
+        근데 a-e 가 a-x-n-c 나 a-x-n-d 보다 길기때문에 e 는 x-n-c 나 x-n-d보다 길고, 그러면 c 나 d에서 e를 선택하는게 더 길어지는 모순 발생.
+
+        2) case2
+        a -n -- c
+             -x- d
+              |
+              e
+        a-n-x-e가 제일 긴 길이이면, 이건 a-n-x-d보다 길다. 즉 n-x-e는 n-x-d보다 길기 때문에,  c에서 d로 가는것보다 e로 가는게 더 길어지는 모순 발생.
+        """
+
+        adj_list = defaultdict(list)
+        for src, dst in edges:
+            adj_list[src].append(dst)
+            adj_list[dst].append(src)
+
+        distances = defaultdict(int)
+        def bfs(start: int):
+            dist =  defaultdict(int)
+            parent = defaultdict(int)
+
+            q = deque([start])
+            dist[start] = 0
+            farthest = start
+            while q:
+                node = q.popleft()
+                farthest = node
+                
+                for nei in adj_list[node]:
+                    if nei not in dist:
+                        dist[nei] = dist[node]+1
+                        parent[nei] = node
+                        q.append(nei)
+            return farthest, parent
+        
+        a, _ = bfs(0)
+        b, parent = bfs(a)
+
+        path = []
+        cur = b
+        while True:
+            path.append(cur)
+            if cur == a:
+                break 
+            cur = parent[cur]
+        l = len(path)
+
+        return path[(l-1)//2 : l//2+1]
+
+
+
+
 class Solution:
     def findMinHeightTrees_3(
         self, n: int, edges: List[List[int]]
