@@ -3,6 +3,40 @@
 
 
 class Solution:
+from functools import lru_cache
+
+class Solution:
+    def cherryPickup(self, grid: List[List[int]]) -> int:
+        """
+        대각선으로 뻗어나감. 그래야 dp가 이전 스텝것이 잘 저장됨.
+        i, j, k (스텝수)
+
+        O(N^3) / O(N^2)
+        """
+        N = len(grid)
+        dp = [[float('-inf') for _ in range(N)] for _ in range(N)] # i, j
+        dp[0][0] = grid[0][0]
+        # k=0인 케이스는 이미 커버됨.
+        for k in range(1, 2*N-1):
+            # dp 를 초기화해줘야 접근 불가능한 경로가 float('-inf')로 잘 업데이트 됨
+            new_dp = [[float('-inf') for _ in range(N)] for _ in range(N)]
+            for j in range(N):
+                for i in range(N):
+                    if k-i < 0 or k-j < 0 or k-i >= N or k-j >=N or grid[i][k-i] == -1 or grid[j][k-j] == -1:
+                        continue 
+                    gain = grid[i][k-i] + grid[j][k-j] if i != j else grid[i][k-i]
+                    new_dp[i][j] = max(
+                        dp[i-1][j-1] if i-1 >= 0 and j-1 >= 0 else float('-inf'), 
+                        dp[i][j-1] if j-1 >= 0 else float('-inf'),
+                        dp[i-1][j] if i-1 >= 0 else float('-inf'),
+                        dp[i][j]
+                    ) + gain
+            dp = new_dp
+        return max(0, dp[N-1][N-1])
+        
+
+
+    
     def cherryPickup(self, grid: List[List[int]]) -> int:
         """
         dfs가 더 풀기 쉬움..
