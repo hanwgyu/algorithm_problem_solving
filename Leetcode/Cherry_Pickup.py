@@ -4,6 +4,26 @@
 
 class Solution:
     def cherryPickup(self, grid: List[List[int]]) -> int:
+        """
+        dfs가 더 풀기 쉬움..
+        """
+        N = len(grid)
+
+        @lru_cache(None)
+        def dfs(x, y, a) -> int:
+            b = x+y-a
+            if x >= N or y >= N or a >= N or b >= N or grid[x][y] == -1 or grid[a][b] == -1:
+                return float('-inf')
+            if x == N-1 and y == N-1:
+                return grid[N-1][N-1]
+            gain = grid[x][y] + grid[a][b]
+            if x == a and y == b:
+                gain -= grid[x][y]
+            return max(dfs(x+1, y, a+1), dfs(x,y+1,a+1), dfs(x+1,y,a),dfs(x,y+1,a)) + gain
+        return max(0, dfs(0,0,0))
+    
+    def cherryPickup(self, grid: List[List[int]]) -> int:
+        
         dic = {(0, 0, 0, 0): grid[0][0]}
         N = len(grid)
         for d in range(1, 2 * N - 1):
