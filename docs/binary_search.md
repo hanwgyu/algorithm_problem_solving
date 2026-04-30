@@ -35,6 +35,12 @@ def binary_search(arr, x):
 
 
 ## 1번 vs 2번
+
+```
+mid를 버리면 안 되는 문제 → while l < r
+mid를 버릴 수 있는 문제 → while l <= r
+```
+
 1번은  “경계 찾기” 문제에 사용된다. 왼쪽이나 오른쪽을 버리지 않기 때문에, 명확한 경계를 찾는데 사용된다.
 	•	peak 찾기
 	•	lower/upper bound
