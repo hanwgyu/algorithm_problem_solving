@@ -39,27 +39,39 @@ nums  t
 [3,1] 1 다른열   -> 로직은 mid=float('-inf')
 [3,1] 3 다른열   -> 이부분 로직이 mid=mid 로 잘못처리되나 동작에 문제 없음 (바로 리턴)
 """
-
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
+        """
+        mid와 target이 같은 열에 있는지 없는지 : (l <= mid) == (l <= target)
+            같은곳에 있으면 그냥 일반적인 binary search
+            다르면 mid를 아래와 같이 변경한후 일반적인 binary search
+                target > mid : mid = inf
+                target < mid : mid = -inf 
+                target == mid : return
+        특수 케이스 고려 - 
+            전체개수가 2개 : target 1 
+                3 1 =>  mid 3, l 3 -> mid = -inf -> l = m+1 - okay
+                1 3 => mid 1, l 1 -> 일반적인 binary search -> return -> okay
+            전체 개수가 1개
+                mid ==target : return
+                mid != target : boundary 벗어나면서 return -1
+        """
         N = len(nums)
-        before_pivot = (target >= nums[0])
-        # if true, set float('inf') if num <= nums[N].
-        # if false, set float('-inf') if nums[0] <= num
         l, r = 0, N-1
         while l <= r:
-            m = (l+r) // 2
-            num = nums[m]
-            if before_pivot and num < nums[0]:
-                num = float('inf')
-            elif not before_pivot and num >= nums[0]:
-                num = float('-inf')
-            if num > target:
-                r = m-1
-            elif num < target:
+            m = (l+r)//2
+            lv, mv = nums[l], nums[m]
+            if (lv <= mv) != (lv <= target):
+                if target < mv:
+                    mv = float('-inf')
+                elif target > mv:
+                    mv = float('inf')
+            if mv == target:
+                return m
+            elif mv < target:
                 l = m+1
             else:
-                return m
+                r = m-1
         return -1
 
 class Solution:
