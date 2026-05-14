@@ -28,6 +28,45 @@ r1 < l2 이면 m2가 너무 오른쪽으로 이동했으므로 r = m2-1로 이�
 짝수와 홀수 갯수를 구분해 결과를 리턴.
 """
 
+
+"""
+LATEST:
+작은 array
+큰 array
+
+l, r을 작은 array에서 이동시키고, m1을 작은 어레이에서 구하고,
+m2는 정확히 절반 개수로 나누는 큰 array 의 위치를 정함.
+그러면 m1, m2 에 의해 나뉜 각각의 두 파티션들을 앞쪽, 뒤쪽으로 합치면 정확히 개수가 절반인 곳이 나옴.
+그 상태에서 m1, m2의 앞뒤 값 L1,R1 , L2, R2를 기준으로 값을 비교해서 m1을 이동시킴.
+"""
+class Solution:
+    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+        M, N = len(nums1), len(nums2)
+        if M > N:
+            return self.findMedianSortedArrays(nums2, nums1)
+        l, r = 0, M
+        while l <= r:
+            m1 = (l+r) // 2
+            m2 = (M+N)//2 - m1
+            # 앞쪽 파티션이 뒤쪽보다 1 작을수 있음. 즉 홀수이면 뒤쪽 파티션 min(r1, r2)를 리턴해야함.
+            L1 = nums1[m1-1] if (m1-1) >= 0 else float('-inf')
+            R1 = nums1[m1] if m1 < M else float('inf')
+            L2 = nums2[m2-1] if (m2-1) >= 0 else float('-inf')
+            R2 = nums2[m2] if m2 < N else float('inf')
+            if L1 > R2:
+                # 왼쪽으로 이동
+                r = m1 - 1
+            elif R1 < L2:
+                # 오른쪽으로 이동
+                l = m1+1
+            else:
+                #마지막에 l==r 인데, m1, m2 값은 동일함.        
+                if (M+N) %2 == 0:
+                    return (max(L1, L2) + min(R1, R2)) / 2
+                else:
+                    return min(R1, R2)
+        return -1
+
 class Solution:
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
         M, N = len(nums1), len(nums2)
