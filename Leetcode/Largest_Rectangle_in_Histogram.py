@@ -5,7 +5,29 @@
 # Time : O(N), Space : O(N)
 
 
+
 class Solution:
+    def largestRectangleArea(self, heights: List[int]) -> int:
+        """
+        increasing stack 저장
+        저장할때 (높이, indedx) 저장하고, 덮어씌울때는 이전꺼의 index를 사용하게 해서 넓이가 이전인덱스까지 사용될수 있게함
+        그리고 없어질때 넓이를 계산함.
+        O(N) / O(N)
+        """
+        st = [(0,-1)] # height, index
+        heights.append(0)
+        res = 0
+        for i, h in enumerate(heights):
+            last_index = i
+            while st and st[-1][0] >= h:
+                th, last_index = st[-1]
+                area = (i-last_index) * th
+                if  area > res:
+                    res = area
+                st.pop()
+            st.append((h, last_index))
+        return res
+    
     def largestRectangleArea(self, heights: List[int]) -> int:
         s, ans = [], 0
         for i, h in enumerate(heights):
