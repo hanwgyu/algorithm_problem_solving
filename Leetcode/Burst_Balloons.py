@@ -10,6 +10,39 @@
 
 
 class Solution:
+
+class Solution:
+    def maxCoins(self, nums: list[int]) -> int:
+        """
+        brute force : 터트리는 순서를 바꿔가면서 모두 테스트 N!
+
+        dp 인데 [i...j]에서 k 번째가 가장 마지막에 터트릴때 가장 큰 합이라고 표현함.
+
+        ex) 3 1 5 6
+        = "3" + 156 : 3을 가장 마지막 터트릴때
+        = 3 + "1" + 56 : 1을 가장 마지막 터트릴때
+        = 31 + "5" + 6
+        = 315 + "6"
+        가장 마지막 남은걸 범위 밖의 i-1, j+1 와 곱해서 최종 sum을 구하면 됨.
+
+        1개짜리, 2개짜리, 3개짜리 점점 늘려감.
+        dp[i][j]
+        """
+        nums = [1] + nums + [1]
+        dp = defaultdict(int)
+        N = len(nums)
+        for i in range(1, N-1):
+            dp[(i,i)] = nums[i-1] * nums[i] * nums[i+1]
+
+        for k in range(1, N-2):
+            for i in range(1, N-1):
+                j = k+i
+                if j > N-2:
+                    continue 
+                dp[(i,j)] = max(dp[(i,l-1)]+ nums[l]*nums[i-1]*nums[j+1] + dp[(l+1, j)] for l in range(i, j+1))
+        
+        return dp[(1, N-2)]
+    
     def maxCoins_2(self, nums: List[int]) -> int:
         def maxCoinsRange(l: int, r: int) -> int:
             if l + 1 == r:
