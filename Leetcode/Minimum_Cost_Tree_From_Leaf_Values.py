@@ -9,6 +9,29 @@
 
 
 class Solution:
+class Solution:
+    def mctFromLeafValues(self, arr: list[int]) -> int:
+        """
+        dp[i][j] : i~j 까지의 array 를 가지고 tree생성했을때 최소의 sum 
+        max_val[i][j] : i~j까지의 max
+        max 는 O(1)에 구함.
+        i...k (left) k+1 ...j(right)
+        """
+        dp, max_val = defaultdict(int), defaultdict(int)
+        N = len(arr)
+        for i, n in enumerate(arr):
+            max_val[(i,i)] = n
+
+        for l in range(1, N):
+            for i in range(N):
+                j = i+l
+                if j >= N:
+                    continue
+                dp[(i,j)] = min(dp[(i,k)] + dp[(k+1, j)] + max_val[(i,k)] * max_val[(k+1,j)] for k in range(i, j))
+                max_val[(i,j)] = max(max_val[(i,i)], max_val[(i+1, j)])
+        return dp[(0, N-1)]
+
+    
     def mctFromLeafValues_2(self, arr: List[int]) -> int:
         st, ans = [float("inf")], 0
         for v in arr:
