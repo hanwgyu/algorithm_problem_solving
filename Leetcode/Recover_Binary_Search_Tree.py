@@ -7,6 +7,58 @@
 # Time : O(N), Space : O(1)
 
 
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def recoverTree(self, root: TreeNode | None) -> None:
+        """
+        Do not return anything, modify root in-place instead.
+
+        Morris inorder-traversal
+
+        parent로 올라올떄 next를 parent로 연결해놔서 올라옴
+
+        1. curr.left -> find rightmost node and connect curr to the node's right
+        2. go left, do the same
+        3. when back to curr, check the same 1 - if there is node on the right, then disconnect the node and go down right
+        """
+
+        curr = root
+
+        first, second = None, None
+        prev = None
+        def visit(node):
+            nonlocal first, second, prev
+            # Find two nodes
+            if prev and prev.val > curr.val:
+                if not first:
+                    first = prev
+                second = curr
+            prev = curr
+
+        while curr:
+            if not curr.left:
+                visit(curr) #Important!!!
+                curr = curr.right
+            else:
+                pred = curr.left
+
+                while pred.right and pred.right != curr:
+                    pred = pred.right
+                if pred.right is None:
+                    pred.right = curr
+                    curr = curr.left
+                else:
+                    pred.right = None
+                    visit(curr) #Important!!!
+                    curr = curr.right
+        first.val, second.val = second.val, first.val
+
+
 class Solution:
     """
     Do not return anything, modify root in-place instead.
