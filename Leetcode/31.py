@@ -5,6 +5,40 @@
 
 
 class Solution:
+    def nextPermutation(self, nums: list[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+
+        permutation을 구하는 과정.
+        뒤에서부터 숫자가 작아지는 지점을 pivot으로 잡고, 그것보다 그다음 큰 값을 뒤쪽에서 찾아서 그것과 swap함.
+        그러면 뒤쪽은 작아지는 순서로 여전히 존재하고, 그걸 앞뒤 뒤집으면 됨.
+        이거 계속하면 계속 다음게 구해짐.
+
+        이건 외워야하는 수준.
+        """
+        N = len(nums)
+        i = N-1
+        while i > 0 and nums[i-1] >= nums[i]:
+            i -= 1
+        # swap pivots
+        if i > 0:
+            a = i-1
+            b = i
+            while b < N and nums[b] > nums[a]:
+                b += 1
+            nums[a], nums[b-1] = nums[b-1], nums[a]
+        # reverse
+        j = N-1
+        while i < j:
+            nums[i], nums[j] = nums[j], nums[i]
+            i += 1
+            j -= 1
+
+
+
+        
+
+class Solution:
     def nextPermutation(self, nums: List[int]) -> None:
         """
         Do not return anything, modify nums in-place instead.
