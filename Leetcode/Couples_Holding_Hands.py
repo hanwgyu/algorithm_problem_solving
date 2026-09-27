@@ -9,6 +9,49 @@ from collections import defaultdict
 
 
 class Solution:
+    def minSwapsCouples(self, row: list[int]) -> int:
+        """
+        커플을 그룹으로 봄.
+        초기화 할때 이미 그룹화 해놓고,
+        다른 커플과 옆자리이면 그룹으로 연결함.
+        이미 그룹에 연결된 경우에는 횟수 추가 x.
+        그 복잡하게 꼬인 관계를 그룹이라고 보면, 무조건 N-1 회가 필요함.
+        즉 그룹 수를 구하고 전체 N에서 빼면 그게 필요한 swap횟수.
+        Union-find
+        """
+        N = len(row)//2
+        d = {i: i for i in range(N)}
+        height = {i: 0 for i in range(N)}
+        
+        def find(a: int) -> int:
+            if d[a] != a:
+                # path compression
+                d[a] = find(d[a])
+            return d[a]
+        def union(a: int, b: int):
+            da, db = find(a), find(b)
+            ha, hb = height[da], height[db]
+            if ha > hb:
+                d[db] = da
+            elif ha < hb:
+                d[da] = db
+            else:
+                d[da]= db
+                height[db] += 1
+        
+        for i in range(N):
+            src, dst = row[2*i], row[2*i+1]
+            union(src//2, dst//2)
+        # count total group number
+        groups = set()
+        for i in range(N):
+            groups.add(find(i))
+        return N-len(groups)
+
+
+
+
+class Solution:
     def minSwapsCouples(self, row: List[int]) -> int:
         def find(i: int) -> int:
             if d[i] != i:
