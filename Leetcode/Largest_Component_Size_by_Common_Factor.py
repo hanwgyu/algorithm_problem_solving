@@ -11,6 +11,77 @@
 import math
 from typing import Set
 
+class Solution:
+    def largestComponentSize(self, nums: list[int]) -> int:
+        """
+        모든 숫자를 돌면서 직접 나눠보고 해당하는 K개에 대해 union-find를 함. 
+        
+        이미 합쳐진것들 제외하고?
+        1) factor 하나가 K개의 원소에 등장했을때 K-1번만 해서 다 동일한 union으로 묶으면됨.
+
+        다 돌면 너무 많은데. 한번이라도 연결된것들은 빼도 될텐데.
+        2) 연결된 두 edge를 저장하고 그건 패스하고 진행.
+
+        O(max(nums)*N)/ O(N)
+
+        최적화 : 그냥 소인수분해를함.
+        sqrt(max(nums))까지 소인수 분해하고, 소인수분해하면서 해당하는것들 저장해놓음.
+        O(N*sqrt(max(nums))) / O(N)
+
+
+        최적화 2: 
+        아리스토텔리스의 체로 소수 구해놓고 이걸로만 계산하고, 제곱이 해당 숫자 소인수분해한값 보다 크면 더 진행안하고, 각 숫자마다 각자 진행하는거라는거지?
+        """
+        N = len(nums)
+        factor_owner = defaultdict(set)
+        for factor in range(2, int(sqrt(max(nums)))+1):
+            for i in range(N):
+                num = nums[i]
+                while num % factor == 0:
+                    num //= factor
+                    factor_owner[factor].add(i)
+                nums[i] = num
+        
+        for i, num in enumerate(nums):
+            if num != 1:
+               factor_owner[num].add(i)
+        
+        # union-find
+        d = {i:i for i in range(N)}
+        heights = {i:0 for i in range(N)}
+        sizes = {i:1 for i in range(N)}
+        def find(a: int) -> int:
+            if d[a] != a:
+                #path compression
+                d[a] = find(d[a])
+            return d[a]
+        
+        def union(a:int, b:int):
+            ra, rb = find(a), find(b)
+            if ra == rb:
+                return
+            ha, hb = heights[ra], heights[rb]
+            if ha > hb:
+                d[rb] = ra
+                sizes[ra] += sizes[rb]
+            elif ha < hb:
+                d[ra] = rb
+                sizes[rb] += sizes[ra]
+            else:
+                d[ra] = rb
+                heights[rb] += 1
+                sizes[rb] += sizes[ra]
+        
+        for _, owners in factor_owner.items():
+            owners = list(owners)
+            first_owner = owners[0]
+            for owner in owners[1:]:
+                union(first_owner, owner)
+        return max(sizes.values())
+
+                
+
+
 
 class Solution:
     def findPrimeFactors(self, a: int) -> Set[int]:
