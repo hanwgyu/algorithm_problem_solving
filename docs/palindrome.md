@@ -15,6 +15,7 @@
 - Refer
   - https://leetcode.com/problems/longest-palindromic-substring/description/
   - [Code](Leetcode/Longest_Palindromic_Substring.py)
+  - https://leetcode.com/problems/palindromic-substrings/submissions/
 
 
 ## Palindrome + Rolling Hash 팁
