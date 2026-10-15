@@ -165,3 +165,197 @@ def getk(piles: List[int], h: int) -> int:
             r = m - 1
     return l
 ```
+
+
+-----
+## New
+
+돼. **경계 찾기도 `l <= r`로 충분히 구현 가능해.** 핵심은 마지막에 `l` 또는 `r`이 경계를 가리키도록 만드는 거야.
+
+예를 들어 lower bound, 즉 첫 `a[i] >= x` 찾기:
+
+```python
+l, r = 0, len(a) - 1
+
+while l <= r:
+    m = (l + r) // 2
+
+    if a[m] < x:
+        l = m + 1
+    else:
+        r = m - 1
+
+return l
+```
+
+예를 들어:
+
+```text
+a = [1, 3, 5, 7]
+x = 4
+```
+
+종료하면:
+
+```text
+r = 1
+l = 2
+```
+
+즉 경계 사이가:
+
+```text
+[1, 3] | [5, 7]
+         ^
+         l
+```
+
+이라서 `l=2`가 첫 `>=4` 위치야.
+
+`x=5`여도 똑같이 `l=2`가 나와.
+
+그래서 같은 lower bound를 두 방식으로 다 쓸 수 있어.
+
+```python
+# 방식 A: 수렴
+l, r = 0, len(a)
+while l < r:
+    m = (l + r) // 2
+    if a[m] < x:
+        l = m + 1
+    else:
+        r = m
+return l
+```
+
+또는:
+
+```python
+# 방식 B: 교차
+l, r = 0, len(a) - 1
+while l <= r:
+    m = (l + r) // 2
+    if a[m] < x:
+        l = m + 1
+    else:
+        r = m - 1
+return l
+```
+
+차이는 종료 모양이야:
+
+```text
+l < r 방식:
+[l ... r]을 하나로 수렴
+종료: l == r
+
+l <= r 방식:
+후보들을 전부 버리면서 두 포인터가 교차
+종료: r < l
+```
+
+경계 찾기에서는 보통 종료 후:
+
+```text
+r = 마지막 False
+l = 첫 True
+```
+
+가 돼.
+
+그래서 네가 `l <= r` 방식이 더 익숙하면 **그걸로 통일해서 써도 전혀 문제 없어.** 오히려 exact search랑 boundary search 둘 다 같은 loop 형태를 쓰니까 외우기 편할 수 있어.
+
+돼. **경계 찾기도 `l <= r`로 충분히 구현 가능해.** 핵심은 마지막에 `l` 또는 `r`이 경계를 가리키도록 만드는 거야.
+
+예를 들어 lower bound, 즉 첫 `a[i] >= x` 찾기:
+
+```python
+l, r = 0, len(a) - 1
+
+while l <= r:
+    m = (l + r) // 2
+
+    if a[m] < x:
+        l = m + 1
+    else:
+        r = m - 1
+
+return l
+```
+
+예를 들어:
+
+```text
+a = [1, 3, 5, 7]
+x = 4
+```
+
+종료하면:
+
+```text
+r = 1
+l = 2
+```
+
+즉 경계 사이가:
+
+```text
+[1, 3] | [5, 7]
+         ^
+         l
+```
+
+이라서 `l=2`가 첫 `>=4` 위치야.
+
+`x=5`여도 똑같이 `l=2`가 나와.
+
+그래서 같은 lower bound를 두 방식으로 다 쓸 수 있어.
+
+```python
+# 방식 A: 수렴
+l, r = 0, len(a)
+while l < r:
+    m = (l + r) // 2
+    if a[m] < x:
+        l = m + 1
+    else:
+        r = m
+return l
+```
+
+또는:
+
+```python
+# 방식 B: 교차
+l, r = 0, len(a) - 1
+while l <= r:
+    m = (l + r) // 2
+    if a[m] < x:
+        l = m + 1
+    else:
+        r = m - 1
+return l
+```
+
+차이는 종료 모양이야:
+
+```text
+l < r 방식:
+[l ... r]을 하나로 수렴
+종료: l == r
+
+l <= r 방식:
+후보들을 전부 버리면서 두 포인터가 교차
+종료: r < l
+```
+
+경계 찾기에서는 보통 종료 후:
+
+```text
+r = 마지막 False
+l = 첫 True
+```
+
+가 돼.
+
+그래서 네가 `l <= r` 방식이 더 익숙하면 **그걸로 통일해서 써도 전혀 문제 없어.** 오히려 exact search랑 boundary search 둘 다 같은 loop 형태를 쓰니까 외우기 편할 수 있어.
