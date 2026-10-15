@@ -695,3 +695,123 @@ l = 첫 True
 가 돼.
 
 그래서 네가 `l <= r` 방식이 더 익숙하면 **그걸로 통일해서 써도 전혀 문제 없어.** 오히려 exact search랑 boundary search 둘 다 같은 loop 형태를 쓰니까 외우기 편할 수 있어.
+
+
+쓸 수는 있는데, **`m`을 찾자마자 return하는 exact search라면 `while l <= r`가 더 자연스러운 이유가 마지막 후보 1개까지 검사해야 해서**야.
+
+예를 들어:
+
+```python
+a = [1]
+x = 1
+```
+
+`l = 0, r = 0`일 때
+
+```python
+while l < r:
+```
+
+는 애초에 루프를 안 들어가. 그래서 `m`을 계산해서 검사할 기회가 없어.
+
+반면:
+
+```python
+while l <= r:
+```
+
+면
+
+```python
+m = 0
+a[m] == x
+```
+
+를 검사하고 바로 return할 수 있어.
+
+즉 exact search는 보통 후보 구간을 `[l, r]`로 잡고:
+
+```text
+후보가 1개 남아 있어도 아직 검사해야 함
+```
+
+그래서 조건이:
+
+```python
+while l <= r:
+```
+
+가 되는 거야.
+
+반대로 `while l < r` 방식은 보통 **마지막 한 개를 직접 검사하는 게 아니라 그 한 위치로 수렴시키는 방식**이야.
+
+예를 들어 lower bound:
+
+```python
+l, r = 0, len(a)
+
+while l < r:
+    m = (l + r) // 2
+
+    if a[m] < x:
+        l = m + 1
+    else:
+        r = m
+
+return l
+```
+
+여기서는 `l == r`이 되는 순간:
+
+> 후보가 하나로 수렴했다
+
+고 보고 그 위치를 반환해.
+
+그래서 둘의 철학이 달라:
+
+```text
+while l <= r
+→ m을 직접 검사
+→ 맞으면 return m
+→ 후보가 0개 될 때 종료
+
+while l < r
+→ m을 이용해서 후보 구간을 줄임
+→ 후보가 1개 되면 종료
+→ 마지막에 l/r 반환
+```
+
+물론 `while l < r`에서도 `m`을 중간에 return할 수는 있어:
+
+```python
+while l < r:
+    m = (l + r) // 2
+
+    if a[m] == x:
+        return m
+    elif a[m] < x:
+        l = m + 1
+    else:
+        r = m
+```
+
+근데 종료 후 **마지막 남은 `l == r` 위치를 따로 검사해야 해**:
+
+```python
+if a[l] == x:
+    return l
+return -1
+```
+
+그래서 exact search에서는 그냥:
+
+```python
+while l <= r:
+```
+
+가 더 깔끔한 거야.
+
+한 줄로 기억하면:
+
+> **`m`을 정답인지 직접 검사하는 search → `l <= r`가 자연스러움**  
+> **정답 위치로 수렴시키는 search → `l < r`가 자연스러움**
