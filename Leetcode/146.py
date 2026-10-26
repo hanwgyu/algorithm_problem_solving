@@ -1,3 +1,44 @@
+# DoublyLinkedList : OrderedDict으로 바로 사용가능.
+
+class LRUCache:
+
+    def __init__(self, capacity: int):
+        self.cnt = 0
+        self.capacity = capacity
+        self.d = OrderedDict()
+
+    def get(self, key: int) -> int:
+        if key in self.d:
+            self.d.move_to_end(key)
+            return self.d[key]
+        return -1
+
+    def put(self, key: int, value: int) -> None:
+        if self.capacity == 0:
+            return
+
+        if key in self.d:
+            # update
+            self.d[key] = value
+            self.d.move_to_end(key)
+            return
+        
+        if self.cnt >= self.capacity:
+            self.d.popitem(last=False)
+            self.cnt -=1
+        # add
+        self.d[key] = value
+        self.d.move_to_end(key) 
+        self.cnt += 1
+
+
+# Your LRUCache object will be instantiated and called as such:
+# obj = LRUCache(capacity)
+# param_1 = obj.get(key)
+# obj.put(key,value)
+
+
+---
 class Node:
     def __init__(self, key, val):
         self.key = key
