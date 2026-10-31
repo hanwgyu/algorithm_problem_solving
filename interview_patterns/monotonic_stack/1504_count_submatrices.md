@@ -1,3 +1,69 @@
+# 내 풀이 — Row Histogram + DP + Monotonic Stack
+
+- 문제: [LeetCode 1504. Count Submatrices With All Ones](https://leetcode.com/problems/count-submatrices-with-all-ones/)
+- 시간 **O(MN)** / 추가 공간 **O(N)**
+
+**30초 복습:** 각 행을 아래쪽 끝으로 고정하고 열마다 연속된 1의 높이 `heights[j]`를 갱신한다. `dp[j]`는 현재 `j`를 **오른쪽 끝**으로 하는 모든 사각형 수. 증가 스택에서 이전의 `height <= h`인 가장 가까운 열 `prev_idx`를 찾아 두 그룹으로 나눈다.
+
+- 시작 열이 `prev_idx`보다 **오른쪽**이면 현재 높이 `h`가 최소 → `(j-prev_idx)*h`.
+- 시작 열이 `prev_idx` **이전 또는 동일**이면 → `dp[prev_idx]` 재사용.
+- 두 그룹은 시작 위치가 겹치지 않음. 각 행/열을 하단/우측 끝으로 고정하므로 최종 합계도 중복 없음.
+
+```text
+heights = [2,4,3], j=2, prev_idx=0
+start 1,2: 3 + 3 = 6
+start 0:   dp[0] = 2
+dp[2] = 8
+```
+
+### 내 코드 (sentinel 경계조건 수정)
+
+원래 생각과 구성은 그대로 유지하고 **두 부분만 수정**:
+1. `st=[(-1,0)]` sentinel은 절대로 pop하면 안 되므로 `len(st)>1`.
+2. `prev_idx=-1`일 때 `dp[-1]`을 조회하면 Python의 **마지막 원소**가 되어 오류가 날 수 있음 → `0` 처리.
+
+```python
+class Solution:
+    def numSubmat(self, mat: list[list[int]]) -> int:
+        """
+        각 행을 histogram의 바닥으로 보고 각 열의 연속된 1 높이를 갱신.
+        dp[j] = 현재 행과 열 j를 끝으로 하는 사각형 수.
+        이전 작은/같은 높이의 위치를 increasing stack에서 찾는다.
+
+        cnt = (j - prev_idx) * h + dp[prev_idx]
+        prev_idx == -1이면 이전 dp는 0.
+
+        O(MN) time / O(N) space
+        """
+        M, N = len(mat), len(mat[0])
+        res = 0
+        heights = [0] * N
+
+        for i in range(M):
+            dp = [0] * N
+            st = [(-1, 0)]  # (index, height); sentinel
+            for j in range(N):
+                h = 0 if mat[i][j] == 0 else heights[j] + 1
+                heights[j] = h
+
+                while len(st) > 1 and st[-1][1] > h:
+                    st.pop()
+
+                prev_idx, _ = st[-1]
+                prev_cnt = dp[prev_idx] if prev_idx != -1 else 0
+                cnt = (j - prev_idx) * h + prev_cnt
+
+                dp[j] = cnt
+                res += cnt
+                st.append((j, h))
+
+        return res
+```
+
+**자주 틀리는 점:** 전체 `a*b`의 사각형 수 공식은 이 풀이에 필요하지 않음. **현재 오른쪽 끝의 구간별 minimum 높이 합**만 구하면 됨. Stack에 동일 높이는 남겨도 올바르게 계산됨 (`while > h`).
+
+---
+
 # 1504. Count Submatrices With All Ones
 
 - [LeetCode 문제](https://leetcode.com/problems/count-submatrices-with-all-ones/)
