@@ -17,6 +17,8 @@
 - array인데 더 쉬운 구현
     - https://www.geeksforgeeks.org/segment-tree-efficient-implementation/
 
+- **중요** Dynamic Segment Tree : build를 한번에 하지 않고, update 요청이 올때마다 노드를 구성함.
+  - https://leetcode.com/problems/range-module/description/ 이 문제 보기
 
 ## 자세히
 
