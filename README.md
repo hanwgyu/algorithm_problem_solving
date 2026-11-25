@@ -192,7 +192,7 @@
 | 190  | Array | Get Maximum in Generated Array | [LeetCode](https://leetcode.com/problems/get-maximum-in-generated-array/) | [A](Leetcode/Get_Maximum_in_Generated_Array.py) | + |
 | 191  | String | Minimum Deletions to Make Character Frequencies Unique | [LeetCode](https://leetcode.com/problems/minimum-deletions-to-make-character-frequencies-unique/) | [A](Leetcode/Minimum_Deletions_to_Make_Character_Frequencies_Unique.py) | + |
 | 192  | Array, Math | Sell Diminishing-Valued Colored Balls | [LeetCode](https://leetcode.com/problems/sell-diminishing-valued-colored-balls/) | [A](Leetcode/Sell_Diminishing-Valued_Colored_Balls.py) | + | 2 |
-| 193  | Binary Index Tree | Create Sorted Array through Instructions | [LeetCode](https://leetcode.com/problems/create-sorted-array-through-instructions/) | [A](Leetcode/Create_Sorted_Array_through_Instructions.py) | -! | 3 | Binary Index Tree |
+| 193  | Binary Index Tree | Create Sorted Array through Instructions | [LeetCode](https://leetcode.com/problems/create-sorted-array-through-instructions/) | [A](Leetcode/Create_Sorted_Array_through_Instructions.py) | -! | 3 | Binary Index Tree (Fenwick Tree) |
 | 194  | Array | Design an Ordered Stream | [LeetCode](https://leetcode.com/problems/design-an-ordered-stream/) | [A](Leetcode/Design_an_Ordered_Stream.py) | + |
 | 195  | Hash | Minimum Operations to Reduce X to Zero | [LeetCode](https://leetcode.com/problems/minimum-operations-to-reduce-x-to-zero/) | [A](Leetcode/1658.py) | + | 3 | Sliding Window, Prefix Sum 기본 문제. |
 | 196  | String | Determine if Two Strings Are Close | [LeetCode](https://leetcode.com/problems/determine-if-two-strings-are-close/) | [A](Leetcode/Determine_if_Two_Strings_Are_Close.py) | + | 1 |
