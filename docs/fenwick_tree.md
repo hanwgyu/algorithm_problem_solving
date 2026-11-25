@@ -184,6 +184,11 @@ def update(i, delta):
         i += i & -i
 ```
 
+이 업데이트 부분이 심오한데, lowbit를 더해가면서 update를 하면 현재 index를 포함하는 곳들을 다 업데이트 가능하다.
+
+증명은 -- 1) lowbit L을 더한 새로운값 X+L 은 항상 lowbit가 2L 이상이게 되고, 그러면 항상 X를 포함한다.
+2) lowbit L 을 더한 새로운값 X+L과 이전값 X 사이의 값들은 항상 lowbit가 L보다 오른쪽에 있고, 그러면 이 값들은 X를 절대 포함할 수 없다. 
+
 ### 예시: update(5, +3)
 
 ```text
