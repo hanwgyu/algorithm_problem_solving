@@ -33,6 +33,53 @@ def binary_search(arr, x):
 ```
 2번 구현 방식을 쓰자.  외우기도 쉽고, arr 크기가 1일때도 사용할 수 있다. (아래에서 설명)
 
+## 최종정리 : 항상 2를 쓰자.
+
+니 l<r 를 쓰면 헷갈리잖아 모든  l<r를 l<=r로 풀수 있다면 모든 체크 범위를 확실히 할수 잇으니 l<=r이 나을듯?
+맞아. 나도 네 접근에 동의해. Binary Search는 전부 while l <= r로 통일해도 돼. 굳이 l < r을 사용할 필요 없어.
+
+특히 Google 코딩 면접을 준비한다면 여러 템플릿을 외우기보다 하나의 일관된 템플릿을 정확히 사용하는 게 더 유리해.
+
+네가 말한 장점도 정확해.
+
+l <= r은 마지막 후보(l == r)까지 실제로 검사함.
+
+mid를 항상 탐색 범위에서 제거하므로 무한 루프 위험이 적음.
+
+최소/최대 경계 탐색 모두 동일한 구조를 사용함.
+
+유효한 답이 없는 경우도 ans의 초기값으로 처리하기 쉬움.
+
+앞으로 이 템플릿 하나만 기억하면 돼. 범위 찾는것도 이걸 쓸수 있음.
+
+```
+ans = -1
+while l <= r:
+    m = (l + r) // 2
+    if valid(m):
+        ans = m
+        l = m + 1
+    else:
+        r = m - 1
+return ans
+```
+
+```
+ans = -1
+while l <= r:
+    m = (l + r) // 2
+    if valid(m):
+        ans = m
+        r = m - 1
+    else:
+        l = m + 1
+return ans
+```
+
+https://leetcode.com/problems/longest-duplicate-substring/submissions/2203732028/ 이문제 참고.
+
+
+---
 
 ## 1번 vs 2번
 
