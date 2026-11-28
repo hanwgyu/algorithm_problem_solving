@@ -235,34 +235,34 @@
 | 232 | Array | Find the Longest Valid Obstacle Course at Each Position | [LeetCode](https://leetcode.com/problems/find-the-longest-valid-obstacle-course-at-each-position/) | [A](Leetcode/1964.py) | + | 3 | Longest Increasing Subsequnce (LIS) |
 | 233 | DP | Number of Unique Good Subsequences | [LeetCode](https://leetcode.com/problems/number-of-unique-good-subsequences/) | [A](Leetcode/1987.py) | -! | 3 |
 | 234 | Sorting | The Number of Weak Characters in the Game | [LeetCode](https://leetcode.com/problems/the-number-of-weak-characters-in-the-game) | [A](Leetcode/1996.py) | - | 3 | Sorting을 창의적으로 쓰는 문제 |
-| 235 | DP | | | [A](Leetcode/72.py) | - | 3 |
-| 236 | Union-Find | | | [A](Leetcode/827.py) | -! | 3 |
-| 236 | Graph | | | [A](Leetcode/2097.py) | -! | 3 | eulerian trail. 한붓그리기 |
-| 237 | String | | | [A](Leetcode/727.py) | -! | 3 | |
-| 238 | Binary Search, Array | | | [A](Leetcode/715.py) | -! | 3 |
-| 239 | Stack | | | [A](Leetcode/1499.py) | -! | 4 |
-| 240 | DP | | | [A](Leetcode/471.py) | -! | 4 |
-| 241 | Heap | | | [A](Leetcode/407.py) | -! | 4 |
-| 242 | BFS | Shortest Path in a Grid with Obstacles Elimination | | [A](Leetcode/1293.py) | -! | 4 | BFS + visited |
-| 243 | DFS | | | [A](Leetcode/329.py) | -! | 4 | 1293번과 같이 풀어보기 |
-| 244 | BFS | | | [A](Leetcode/1345.py) | + | 4 | 1293번과 유사함 |
-| 245 | BFS | | | [A](Leetcode/1368.py) | + | 4 | 1293번과 유사함 |
-| 246 | DP | Stone Game III | | [A](Leetcode/1406.py) | -! | 4 | 게임이론? 모르겠음.. |
-| 247 | DP | Stone Game II | | [A](Leetcode/1140.py) | -! | 3 | 게임이론, lru_cache |
-| 248 | DP | Stone Game IV | | [A](Leetcode/1510.py) | + | 4 | 게임이론, lru_cache, 재밌음! |
-| 249 | DP | Stone Game VIII | | [A](Leetcode/1872.py) | --! | 4 | Stone Game 시리즈중 제일 어렵고 중요함. |
-| 250 | Stack | Car Fleet II | | [A](Leetcode/1776.py) | -! | 4 | Trapping rain water 과 비슷한 문제. 어려움. |
-| 251 | BFS | Optimal Account Balancing | | [A](Leetcode/465.py) | -! | 4 | BFS만 쓰는 문제인데 , 어려움. |
-| 252 | DP | Student Attendance Record II | | [A](Leetcode/552.py) | -! | 4 | DP인데 로직짜기가 어렵고 매우 중요하다! |
-| 253 | DP | | | [A](Leetcode/1526.py) | - | 3 | |
-| 254 | Merge Sort | Count of Smaller Numbers After Self | | [A](Leetcode/315.py) | -! | 4 | merge sort를 쓰는 천재적인 아이디어. |
-| 254 | BFS, DP | Race Car | | [A](Leetcode/818.py) | -! | 5 | 로직짜는것도 어렵고, DP 케이스를 고려하는 것도 어렵고. 신기한 문제. |\
-| 255 | BFS | Bus Route | | [A](Leetcode/815.py) | + | 3 | 1293번과  유사함. |
-| 256 | Array, DP | Video Stitching | | [A](Leetcode/1024.py) | -! | 3 | 범위를 MERGE하는 가장 기본적인 문제. 중요함 |
-| 257 | Array, DP | Minimum Number of Taps to Open to Water a Garden | | [A](Leetcode/1326.py) | + | 3 | `1024. Video Stitching` 과 동일한 문제. |
-| 258 | DP | Minimum Number of Refueling Stops | | [A](Leetcode/871.py) | + | 3 | `1024. Video Stitching` 과 비슷한데 더 쉽다. |
-| 259 | Sliding Window | Minimum Swaps to Group All 1's Together II | | [A](Leetcode/2134.py) | -! | 3 | Sliding Window를 구하는 테크닉이 중요하다. |
-| 260 | DP | Count Unique Characters of All Substrings of a Given String | | [A](Leetcode/828.py) | - | 3 | 재미있는 DP 문제. 면접에 나올만함. |
+| 235 | DP | Edit Distance | [LeetCode](https://leetcode.com/problems/edit-distance/) | [A](Leetcode/72.py) | - | 3 |
+| 236 | Union-Find | Making A Large Island | [LeetCode](https://leetcode.com/problems/making-a-large-island/) | [A](Leetcode/827.py) | -! | 3 |
+| 236 | Graph | Valid Arrangement of Pairs | [LeetCode](https://leetcode.com/problems/valid-arrangement-of-pairs/) | [A](Leetcode/2097.py) | -! | 3 | eulerian trail. 한붓그리기 |
+| 237 | String | Minimum Window Subsequence | [LeetCode](https://leetcode.com/problems/minimum-window-subsequence/) | [A](Leetcode/727.py) | -! | 3 | |
+| 238 | Binary Search, Array | Range Module | [LeetCode](https://leetcode.com/problems/range-module/) | [A](Leetcode/715.py) | -! | 3 |
+| 239 | Stack | Max Value of Equation | [LeetCode](https://leetcode.com/problems/max-value-of-equation/) | [A](Leetcode/1499.py) | -! | 4 |
+| 240 | DP | Encode String with Shortest Length | [LeetCode](https://leetcode.com/problems/encode-string-with-shortest-length/) | [A](Leetcode/471.py) | -! | 4 |
+| 241 | Heap | Trapping Rain Water II | [LeetCode](https://leetcode.com/problems/trapping-rain-water-ii/) | [A](Leetcode/407.py) | -! | 4 |
+| 242 | BFS | Shortest Path in a Grid with Obstacles Elimination | [LeetCode](https://leetcode.com/problems/shortest-path-in-a-grid-with-obstacles-elimination/) | [A](Leetcode/1293.py) | -! | 4 | BFS + visited |
+| 243 | DFS | Longest Increasing Path in a Matrix | [LeetCode](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/) | [A](Leetcode/329.py) | -! | 4 | 1293번과 같이 풀어보기 |
+| 244 | BFS | Jump Game IV | [LeetCode](https://leetcode.com/problems/jump-game-iv/) | [A](Leetcode/1345.py) | + | 4 | 1293번과 유사함 |
+| 245 | BFS | Minimum Cost to Make at Least One Valid Path in a Grid | [LeetCode](https://leetcode.com/problems/minimum-cost-to-make-at-least-one-valid-path-in-a-grid/) | [A](Leetcode/1368.py) | + | 4 | 1293번과 유사함 |
+| 246 | DP | Stone Game III | [LeetCode](https://leetcode.com/problems/stone-game-iii/) | [A](Leetcode/1406.py) | -! | 4 | 게임이론? 모르겠음.. |
+| 247 | DP | Stone Game II | [LeetCode](https://leetcode.com/problems/stone-game-ii/) | [A](Leetcode/1140.py) | -! | 3 | 게임이론, lru_cache |
+| 248 | DP | Stone Game IV | [LeetCode](https://leetcode.com/problems/stone-game-iv/) | [A](Leetcode/1510.py) | + | 4 | 게임이론, lru_cache, 재밌음! |
+| 249 | DP | Stone Game VIII | [LeetCode](https://leetcode.com/problems/stone-game-viii/) | [A](Leetcode/1872.py) | --! | 4 | Stone Game 시리즈중 제일 어렵고 중요함. |
+| 250 | Stack | Car Fleet II | [LeetCode](https://leetcode.com/problems/car-fleet-ii/) | [A](Leetcode/1776.py) | -! | 4 | Trapping rain water 과 비슷한 문제. 어려움. |
+| 251 | BFS | Optimal Account Balancing | [LeetCode](https://leetcode.com/problems/optimal-account-balancing/) | [A](Leetcode/465.py) | -! | 4 | BFS만 쓰는 문제인데 , 어려움. |
+| 252 | DP | Student Attendance Record II | [LeetCode](https://leetcode.com/problems/student-attendance-record-ii/) | [A](Leetcode/552.py) | -! | 4 | DP인데 로직짜기가 어렵고 매우 중요하다! |
+| 253 | DP | Minimum Number of Increments on Subarrays to Form a Target Array | [LeetCode](https://leetcode.com/problems/minimum-number-of-increments-on-subarrays-to-form-a-target-array/) | [A](Leetcode/1526.py) | - | 3 | |
+| 254 | Merge Sort | Count of Smaller Numbers After Self | [LeetCode](https://leetcode.com/problems/count-of-smaller-numbers-after-self/) | [A](Leetcode/315.py) | -! | 4 | merge sort를 쓰는 천재적인 아이디어. |
+| 254 | BFS, DP | Race Car | [LeetCode](https://leetcode.com/problems/race-car/) | [A](Leetcode/818.py) | -! | 5 | 로직짜는것도 어렵고, DP 케이스를 고려하는 것도 어렵고. 신기한 문제. |\
+| 255 | BFS | Bus Route | [LeetCode](https://leetcode.com/problems/bus-routes/) | [A](Leetcode/815.py) | + | 3 | 1293번과  유사함. |
+| 256 | Array, DP | Video Stitching | [LeetCode](https://leetcode.com/problems/video-stitching/) | [A](Leetcode/1024.py) | -! | 3 | 범위를 MERGE하는 가장 기본적인 문제. 중요함 |
+| 257 | Array, DP | Minimum Number of Taps to Open to Water a Garden | [LeetCode](https://leetcode.com/problems/minimum-number-of-taps-to-open-to-water-a-garden/) | [A](Leetcode/1326.py) | + | 3 | `1024. Video Stitching` 과 동일한 문제. |
+| 258 | DP | Minimum Number of Refueling Stops | [LeetCode](https://leetcode.com/problems/minimum-number-of-refueling-stops/) | [A](Leetcode/871.py) | + | 3 | `1024. Video Stitching` 과 비슷한데 더 쉽다. |
+| 259 | Sliding Window | Minimum Swaps to Group All 1's Together II | [LeetCode](https://leetcode.com/problems/minimum-swaps-to-group-all-1s-together-ii/) | [A](Leetcode/2134.py) | -! | 3 | Sliding Window를 구하는 테크닉이 중요하다. |
+| 260 | DP | Count Unique Characters of All Substrings of a Given String | [LeetCode](https://leetcode.com/problems/count-unique-characters-of-all-substrings-of-a-given-string/) | [A](Leetcode/828.py) | - | 3 | 재미있는 DP 문제. 면접에 나올만함. |
 | 261 | Trie | Implement Trie | [Leetcode](https://leetcode.com/problems/implement-trie-prefix-tree/) | [A](Leetcode/208.py) | - | 3 | Trie 구현 |
 | 262 | BFS, Trie | Word Search II | [Leetcode](https://leetcode.com/problems/word-search-ii/) | [A](Leetcode/212.py) | - | 3 | Trie를 쓰는 어려운 문제 |
 | 263 | Backtracking | Sudoku Solver | [Leetcode](https://leetcode.com/problems/sudoku-solver/) | [A](Leetcode/37.py) | -! | 3 | backtracking 기본 문제. |
@@ -301,16 +301,16 @@
 | 293  | Two pointer | 4Sum | [LeetCode](https://leetcode.com/problems/4sum/) | [A](Leetcode/18.py) | + | 3 | 3Sum을 NSum으로 확장. 구현만 약간 복잡. |
 | 294  | Two pointer | 3Sum Closest | [LeetCode](https://leetcode.com/problems/3sum-closest/) | [A](Leetcode/16.py) | + | 3 | 3Sum을 약간 변형. |
 | 295  | Two pointer, Tree | Closest Binary Search Tree Value II | [LeetCode](https://leetcode.com/problems/closest-binary-search-tree-value-ii/) | [A](Leetcode/272.py) | -! | 3 | 까다로운 Tree + Two pointer 문제 |
-| 296 | Greedy | Maximum Number of Events That Can Be Attended | | [A](Leetcode/1353.py) | -! | 3 | Start, end time 문제 |
-| 297 | Greedy | Maximum Earnings From Taxi | | [A](Leetcode/2008.py) | -! | 3 | Start, end time 문제 |
-| | Linked List | Linked List Cycle II | | [A](Leetcode/142.py) | -! | 4 | Linked list의 cycle 시작점 구하는 문제. 신기하다. | 
-| | Linked List, Binary Search | Find the Duplicate Number | | [A](Leetcode/287.py) | -! | 4 | 정답의 범위 자체를 binary search로 이동하면서 푸는 문제.. 알아 놓아야할 방법, cycle로도 풀고, 풀이가 다양하다. 천재적인 풀이. 문제도 쉽고 면접에 나올만함. |
-| | Graph | Number of Provinces | | [A](Leetcode/547.py) | -! | 4 | 필수로 볼것!! Union-Find 두가지 최적화 기법 |
-| | DP, BFS |  01 Matrix | | [A](Leetcode/542.py) | +! | 4 | 필수로 볼것!! BFS의 기본 정석 문제. DP로 푸는 방법도 신기해서 면접에 나올만함. | 
-| | Monotonic stack, Jump | Daily Temperatures | | [A](Leetcode/739.py) | +! | 4 | 필수로 볼것!!! Monotonic stack 기본문제, 두번째 풀이에서 결과를 이용해 Jump해서 시간 복잡도를 줄이는 방법은 천재적임. | 
-| | Binary Search | Find K Closest Elements | | [A](Leetcode/658.py) | +! | 4 | Binary Search 조건 처리하기 굉장히 어려운 문제.. |  
-| | Binary Search | Find Minimum in Rotated Sorted Array II | | [A](Leetcode/154.py) | + | 4 | Binary Search 조건 처리하기 굉장히 어려운 문제.. |  
-| | Tree, BFS | Populating Next Right Pointers in Each Node II | | [A](Leetcode/117.py) | +! | 4 | Tree 연결하는 재밌는 문제! 필수로 볼것. |  
+| 296 | Greedy | Maximum Number of Events That Can Be Attended | [LeetCode](https://leetcode.com/problems/maximum-number-of-events-that-can-be-attended/) | [A](Leetcode/1353.py) | -! | 3 | Start, end time 문제 |
+| 297 | Greedy | Maximum Earnings From Taxi | [LeetCode](https://leetcode.com/problems/maximum-earnings-from-taxi/) | [A](Leetcode/2008.py) | -! | 3 | Start, end time 문제 |
+| | Linked List | Linked List Cycle II | [LeetCode](https://leetcode.com/problems/linked-list-cycle-ii/) | [A](Leetcode/142.py) | -! | 4 | Linked list의 cycle 시작점 구하는 문제. 신기하다. | 
+| | Linked List, Binary Search | Find the Duplicate Number | [LeetCode](https://leetcode.com/problems/find-the-duplicate-number/) | [A](Leetcode/287.py) | -! | 4 | 정답의 범위 자체를 binary search로 이동하면서 푸는 문제.. 알아 놓아야할 방법, cycle로도 풀고, 풀이가 다양하다. 천재적인 풀이. 문제도 쉽고 면접에 나올만함. |
+| | Graph | Number of Provinces | [LeetCode](https://leetcode.com/problems/number-of-provinces/) | [A](Leetcode/547.py) | -! | 4 | 필수로 볼것!! Union-Find 두가지 최적화 기법 |
+| | DP, BFS |  01 Matrix | [LeetCode](https://leetcode.com/problems/01-matrix/) | [A](Leetcode/542.py) | +! | 4 | 필수로 볼것!! BFS의 기본 정석 문제. DP로 푸는 방법도 신기해서 면접에 나올만함. | 
+| | Monotonic stack, Jump | Daily Temperatures | [LeetCode](https://leetcode.com/problems/daily-temperatures/) | [A](Leetcode/739.py) | +! | 4 | 필수로 볼것!!! Monotonic stack 기본문제, 두번째 풀이에서 결과를 이용해 Jump해서 시간 복잡도를 줄이는 방법은 천재적임. | 
+| | Binary Search | Find K Closest Elements | [LeetCode](https://leetcode.com/problems/find-k-closest-elements/) | [A](Leetcode/658.py) | +! | 4 | Binary Search 조건 처리하기 굉장히 어려운 문제.. |  
+| | Binary Search | Find Minimum in Rotated Sorted Array II | [LeetCode](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/) | [A](Leetcode/154.py) | + | 4 | Binary Search 조건 처리하기 굉장히 어려운 문제.. |  
+| | Tree, BFS | Populating Next Right Pointers in Each Node II | [LeetCode](https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/) | [A](Leetcode/117.py) | +! | 4 | Tree 연결하는 재밌는 문제! 필수로 볼것. |  
 | | Graph | Min Cost to Connect All Points | [LeetCode](https://leetcode.com/problems/min-cost-to-connect-all-points/) | [A](Leetcode/1584.py) | -! | 4 | Minimum Spanning Tree (MST), Prim's algorithm, Kruskal's algorithm |  
 | | Segment Tree | Range Sum Query - Mutable | [LeetCode](https://leetcode.com/problems/range-sum-query-mutable/) | [A](Leetcode/307.py) | -! | 5 | Segment Tree 기본 구현체.! 이것보다 쉽게 짤수 있는 방법도 있다. 기본이니 한번 봐보자. |
 | | Graph | Sum of Distances in Tree | [LeetCode](https://leetcode.com/problems/sum-of-distances-in-tree/) | [A](Leetcode/834.py) | -! | 3 | preorder, postorder로 돌면서 거리 계산하는 문제 중요. |  
